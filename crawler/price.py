@@ -85,6 +85,7 @@ for d in date_range:
     if df is not None:
         
         insert_values = create_insert_values(df)
+        sql_cmd ="INSERT INTO price VALUES"
         post_data = {'insert_values':insert_values,'sql_cmd':sql_cmd}
         r = requests.post('http://114.35.97.130:41118/price',json=post_data)
         if r.status_code!=200:

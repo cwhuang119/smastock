@@ -37,9 +37,23 @@ def insert_price():
     insert_values = data['insert_values']
     sql_cmd =data['sql_cmd']
     for insert_value in insert_values:
-        print(sql_cmd+insert_value)
         db.engine.execute(sql_cmd+insert_value)
     return Response({'status':'ok'},mimetype='application/json')
+
+
+@app.route('/monthly_revenue',methods=['POST'])
+def insert_monthly_revenue():
+    data = request.json
+    insert_values = data['insert_values']
+    sql_cmd =data['sql_cmd']
+    for insert_value in insert_values:
+        db.engine.execute(sql_cmd+insert_value)
+    return Response({'status':'ok'},mimetype='application/json')
+
+
+
+
+
 
 
 
